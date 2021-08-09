@@ -8,17 +8,21 @@ import java.awt.Toolkit;
 import java.awt.Window;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 
 public class main extends javax.swing.JFrame {
-
+    public int cont;
+    
     public main() {
         initComponents();
         resIMG();
         setLocationRelativeTo(null);
         showDate();
         imgMenu();
+        setLabelShopping();
         setResizable(false);
     }
 
@@ -32,9 +36,10 @@ public class main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButtonHome = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonShoppingCart = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabelContadorCart = new javax.swing.JLabel();
         homeLabel = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
         jLabelReloj = new javax.swing.JLabel();
@@ -93,22 +98,22 @@ public class main extends javax.swing.JFrame {
         });
         asideLabel.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 150, -1));
 
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(242, 242, 242));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
-        jButton3.setText("Shopping Cart");
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setFocusPainted(false);
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonShoppingCart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonShoppingCart.setForeground(new java.awt.Color(242, 242, 242));
+        jButtonShoppingCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonShoppingCart.setText("Shopping Cart");
+        jButtonShoppingCart.setBorderPainted(false);
+        jButtonShoppingCart.setContentAreaFilled(false);
+        jButtonShoppingCart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonShoppingCart.setFocusPainted(false);
+        jButtonShoppingCart.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButtonShoppingCart.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonShoppingCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonShoppingCartActionPerformed(evt);
             }
         });
-        asideLabel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 150, -1));
+        asideLabel.add(jButtonShoppingCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 150, -1));
 
         jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(242, 242, 242));
@@ -127,6 +132,10 @@ public class main extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Seller");
         asideLabel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 150, -1));
+
+        jLabelContadorCart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelContadorCart.setForeground(new java.awt.Color(242, 242, 242));
+        asideLabel.add(jLabelContadorCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, 20));
 
         getContentPane().add(asideLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 490));
 
@@ -202,9 +211,15 @@ public class main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButtonShoppingCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShoppingCartActionPerformed
+        PanelShoppingCart pshopping = new PanelShoppingCart();
+        pshopping.setSize(610,490);
+        pshopping.setLocation(0, 0);
+        homeLabel.removeAll();
+        homeLabel.revalidate();
+        homeLabel.repaint();
+        homeLabel.add(pshopping);
+    }//GEN-LAST:event_jButtonShoppingCartActionPerformed
 
     private void jButtonWheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWheelActionPerformed
         PanelWheels pwheels = new PanelWheels();
@@ -214,7 +229,6 @@ public class main extends javax.swing.JFrame {
         homeLabel.revalidate();
         homeLabel.repaint();
         homeLabel.add(pwheels);
-        
     }//GEN-LAST:event_jButtonWheelActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
@@ -304,6 +318,9 @@ public class main extends javax.swing.JFrame {
         this.jLabelReloj.setText(r.hfActual());
     }
     
+    public void setLabelShopping(){
+        this.jLabelContadorCart.setText(String.valueOf(this.cont));
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -342,11 +359,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel asideLabel;
     private javax.swing.JPanel homeLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonBearings;
     private javax.swing.JButton jButtonBoard;
     private javax.swing.JButton jButtonHome;
+    private javax.swing.JButton jButtonShoppingCart;
     private javax.swing.JButton jButtonTrucks;
     private javax.swing.JButton jButtonWheel;
     private javax.swing.JLabel jLabel1;
@@ -354,6 +371,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelContadorCart;
     private javax.swing.JLabel jLabelProfile;
     private javax.swing.JLabel jLabelReloj;
     // End of variables declaration//GEN-END:variables

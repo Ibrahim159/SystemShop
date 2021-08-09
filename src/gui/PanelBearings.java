@@ -1,13 +1,15 @@
 package gui;
 
+import clases.ClassContador;
 import clases.Reloj;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 
 public class PanelBearings extends javax.swing.JPanel {
-
+    int value = 0;
     
     public PanelBearings() {
         initComponents();
@@ -30,10 +32,10 @@ public class PanelBearings extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        jSpinnerAntiAbec9 = new javax.swing.JSpinner();
         jSpinner3 = new javax.swing.JSpinner();
         jSpinner4 = new javax.swing.JSpinner();
-        jButton2 = new javax.swing.JButton();
+        jButtonAntiAbec9 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -99,9 +101,9 @@ public class PanelBearings extends javax.swing.JPanel {
         add(jLabel6);
         jLabel6.setBounds(450, 290, 150, 60);
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        add(jSpinner2);
-        jSpinner2.setBounds(60, 350, 64, 22);
+        jSpinnerAntiAbec9.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        add(jSpinnerAntiAbec9);
+        jSpinnerAntiAbec9.setBounds(60, 350, 64, 22);
 
         jSpinner3.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         add(jSpinner3);
@@ -111,11 +113,16 @@ public class PanelBearings extends javax.swing.JPanel {
         add(jSpinner4);
         jSpinner4.setBounds(490, 350, 64, 22);
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
-        jButton2.setText("Add");
-        add(jButton2);
-        jButton2.setBounds(50, 390, 90, 25);
+        jButtonAntiAbec9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonAntiAbec9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonAntiAbec9.setText("Add");
+        jButtonAntiAbec9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAntiAbec9ActionPerformed(evt);
+            }
+        });
+        add(jButtonAntiAbec9);
+        jButtonAntiAbec9.setBounds(50, 390, 90, 25);
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
@@ -129,6 +136,14 @@ public class PanelBearings extends javax.swing.JPanel {
         add(jButton4);
         jButton4.setBounds(480, 390, 90, 25);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAntiAbec9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAntiAbec9ActionPerformed
+        ClassContador cont = new ClassContador();
+        this.value += (Integer) this.jSpinnerAntiAbec9.getValue();
+        cont.setCont(value);
+        System.out.println(value);
+        
+    }//GEN-LAST:event_jButtonAntiAbec9ActionPerformed
     
     public void resIMG(){
         ImageIcon logo = new ImageIcon(getClass().getResource("/img/logo.png"));
@@ -163,9 +178,9 @@ public class PanelBearings extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonAntiAbec9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -175,8 +190,8 @@ public class PanelBearings extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelAbecAntiGold;
     private javax.swing.JLabel jLabelAbecArreRed;
     private javax.swing.JLabel jLabelReloj;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JSpinner jSpinner4;
+    private javax.swing.JSpinner jSpinnerAntiAbec9;
     // End of variables declaration//GEN-END:variables
 }

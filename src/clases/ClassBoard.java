@@ -49,5 +49,4 @@ public class ClassBoard extends ClassProductos {
     public void setCant(int cant) {
         this.cant = cant;
     }
-
 }
