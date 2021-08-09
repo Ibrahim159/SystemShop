@@ -1,27 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
 import clases.Reloj;
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.Window;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
-/**
- *
- * @author ibrah
- */
+
 public class main extends javax.swing.JFrame {
 
     public main() {
         initComponents();
         resIMG();
+        setLocationRelativeTo(null);
         showDate();
         imgMenu();
-        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -33,7 +31,7 @@ public class main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonHome = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -78,17 +76,22 @@ public class main extends javax.swing.JFrame {
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         asideLabel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 350, 150, -1));
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(242, 242, 242));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home.png"))); // NOI18N
-        jButton2.setText("Home");
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setFocusPainted(false);
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        asideLabel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 150, -1));
+        jButtonHome.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonHome.setForeground(new java.awt.Color(242, 242, 242));
+        jButtonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home.png"))); // NOI18N
+        jButtonHome.setText("Home");
+        jButtonHome.setBorderPainted(false);
+        jButtonHome.setContentAreaFilled(false);
+        jButtonHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonHome.setFocusPainted(false);
+        jButtonHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButtonHome.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeActionPerformed(evt);
+            }
+        });
+        asideLabel.add(jButtonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 150, -1));
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(242, 242, 242));
@@ -128,43 +131,71 @@ public class main extends javax.swing.JFrame {
         getContentPane().add(asideLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 490));
 
         homeLabel.setBackground(new java.awt.Color(242, 242, 242));
-        homeLabel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        homeLabel.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 100, 100));
+        homeLabel.setLayout(null);
+        homeLabel.add(Logo);
+        Logo.setBounds(6, 6, 100, 100);
 
         jLabelReloj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabelReloj.setForeground(new java.awt.Color(62, 63, 64));
         jLabelReloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelReloj.setText("dd/mm/yyyy");
         jLabelReloj.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        homeLabel.add(jLabelReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 100, -1));
+        homeLabel.add(jLabelReloj);
+        jLabelReloj.setBounds(500, 50, 100, 19);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(62, 63, 64));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Date:");
-        homeLabel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
+        homeLabel.add(jLabel3);
+        jLabel3.setBounds(530, 30, 36, 19);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(62, 63, 64));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("¡Welcome!");
-        homeLabel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 30, 260, -1));
+        homeLabel.add(jLabel4);
+        jLabel4.setBounds(175, 30, 260, 47);
 
         jButtonBoard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBoard.setDefaultCapable(false);
-        homeLabel.add(jButtonBoard, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 200, 140));
+        jButtonBoard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBoardActionPerformed(evt);
+            }
+        });
+        homeLabel.add(jButtonBoard);
+        jButtonBoard.setBounds(350, 140, 200, 140);
 
         jButtonWheel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonWheel.setDefaultCapable(false);
-        homeLabel.add(jButtonWheel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 200, 140));
+        jButtonWheel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonWheelActionPerformed(evt);
+            }
+        });
+        homeLabel.add(jButtonWheel);
+        jButtonWheel.setBounds(60, 140, 200, 140);
 
         jButtonTrucks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonTrucks.setDefaultCapable(false);
-        homeLabel.add(jButtonTrucks, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 200, 140));
+        jButtonTrucks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTrucksActionPerformed(evt);
+            }
+        });
+        homeLabel.add(jButtonTrucks);
+        jButtonTrucks.setBounds(60, 310, 200, 140);
 
         jButtonBearings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBearings.setDefaultCapable(false);
-        homeLabel.add(jButtonBearings, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 200, 140));
+        jButtonBearings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBearingsActionPerformed(evt);
+            }
+        });
+        homeLabel.add(jButtonBearings);
+        jButtonBearings.setBounds(350, 310, 200, 140);
 
         getContentPane().add(homeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 610, 490));
 
@@ -174,6 +205,60 @@ public class main extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButtonWheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWheelActionPerformed
+        PanelWheels pwheels = new PanelWheels();
+        pwheels.setSize(610,490);
+        pwheels.setLocation(0, 0);
+        homeLabel.removeAll();
+        homeLabel.revalidate();
+        homeLabel.repaint();
+        homeLabel.add(pwheels);
+        
+    }//GEN-LAST:event_jButtonWheelActionPerformed
+
+    private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        PanelMenu pmenu = new PanelMenu();
+        pmenu.setSize(610,490);
+        setLocation((screenSize.width/2)-(getWidth()/2), (screenSize.height/2)-(this.getHeight()/2)-15);
+        homeLabel.removeAll();
+        homeLabel.revalidate();
+        homeLabel.repaint();
+        homeLabel.add(pmenu);
+        
+    }//GEN-LAST:event_jButtonHomeActionPerformed
+
+    private void jButtonBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBoardActionPerformed
+        PanelBoard pboard = new PanelBoard();
+        pboard.setSize(610,490);
+        pboard.setLocation(0, 0);
+        homeLabel.removeAll();
+        homeLabel.revalidate();
+        homeLabel.repaint();
+        homeLabel.add(pboard);
+    }//GEN-LAST:event_jButtonBoardActionPerformed
+
+    private void jButtonTrucksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrucksActionPerformed
+        PanelTrucks ptrucks = new PanelTrucks();
+        ptrucks.setSize(610,490);
+        ptrucks.setLocation(0, 0);
+        homeLabel.removeAll();
+        homeLabel.revalidate();
+        homeLabel.repaint();
+        homeLabel.add(ptrucks);
+    }//GEN-LAST:event_jButtonTrucksActionPerformed
+
+    private void jButtonBearingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBearingsActionPerformed
+        PanelBearings pbearings = new PanelBearings();
+        pbearings.setSize(610,490);
+        pbearings.setLocation(0, 0);
+        homeLabel.removeAll();
+        homeLabel.revalidate();
+        homeLabel.repaint();
+        homeLabel.add(pbearings);
+    }//GEN-LAST:event_jButtonBearingsActionPerformed
+    
     public void resIMG(){
         ImageIcon imgIcon = new ImageIcon(getClass().getResource("/img/me_round.png"));
         Image imgEscalada = imgIcon.getImage().getScaledInstance(this.jLabelProfile.getWidth(),
@@ -219,6 +304,7 @@ public class main extends javax.swing.JFrame {
         this.jLabelReloj.setText(r.hfActual());
     }
     
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -256,11 +342,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel asideLabel;
     private javax.swing.JPanel homeLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonBearings;
     private javax.swing.JButton jButtonBoard;
+    private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonTrucks;
     private javax.swing.JButton jButtonWheel;
     private javax.swing.JLabel jLabel1;
