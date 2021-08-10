@@ -32,31 +32,27 @@ public class PanelMenu extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(610, 490));
         setMinimumSize(new java.awt.Dimension(610, 490));
         setPreferredSize(new java.awt.Dimension(610, 490));
-        setLayout(null);
-        add(Logo);
-        Logo.setBounds(6, 6, 100, 100);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 100, 100));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(62, 63, 64));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("¡Welcome!");
-        add(jLabel4);
-        jLabel4.setBounds(175, 30, 260, 47);
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 30, 260, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(62, 63, 64));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Date:");
-        add(jLabel3);
-        jLabel3.setBounds(530, 30, 36, 19);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
 
         jLabelReloj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabelReloj.setForeground(new java.awt.Color(62, 63, 64));
         jLabelReloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelReloj.setText("dd/mm/yyyy");
         jLabelReloj.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        add(jLabelReloj);
-        jLabelReloj.setBounds(500, 50, 100, 19);
+        add(jLabelReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 100, -1));
 
         jButtonWheel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonWheel.setDefaultCapable(false);
@@ -65,8 +61,7 @@ public class PanelMenu extends javax.swing.JPanel {
                 jButtonWheelActionPerformed(evt);
             }
         });
-        add(jButtonWheel);
-        jButtonWheel.setBounds(60, 140, 200, 140);
+        add(jButtonWheel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 200, 140));
 
         jButtonBoard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBoard.setDefaultCapable(false);
@@ -75,8 +70,7 @@ public class PanelMenu extends javax.swing.JPanel {
                 jButtonBoardActionPerformed(evt);
             }
         });
-        add(jButtonBoard);
-        jButtonBoard.setBounds(350, 140, 200, 140);
+        add(jButtonBoard, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 200, 140));
 
         jButtonTrucks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonTrucks.setDefaultCapable(false);
@@ -85,8 +79,7 @@ public class PanelMenu extends javax.swing.JPanel {
                 jButtonTrucksActionPerformed(evt);
             }
         });
-        add(jButtonTrucks);
-        jButtonTrucks.setBounds(60, 310, 200, 140);
+        add(jButtonTrucks, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 200, 140));
 
         jButtonBearings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBearings.setDefaultCapable(false);
@@ -95,8 +88,7 @@ public class PanelMenu extends javax.swing.JPanel {
                 jButtonBearingsActionPerformed(evt);
             }
         });
-        add(jButtonBearings);
-        jButtonBearings.setBounds(350, 310, 200, 140);
+        add(jButtonBearings, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 200, 140));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonWheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWheelActionPerformed

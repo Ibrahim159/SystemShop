@@ -7,8 +7,10 @@ public abstract class ClassProductos {
 
     public ClassProductos(String marca, double price, int cant) {
         this.marca = marca;
-        this.price = price;
         this.cant = cant;
+        if(cant > 0){
+            this.price = price * cant;
+        }
     }
 
     public String getMarca() {
@@ -24,7 +26,9 @@ public abstract class ClassProductos {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if(this.cant != 0){
+            this.price *= cant;
+        }
     }
 
     public int getCant() {
@@ -34,4 +38,5 @@ public abstract class ClassProductos {
     public void setCant(int cant) {
         this.cant = cant;
     }
+    
 }

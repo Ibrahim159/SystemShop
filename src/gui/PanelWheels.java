@@ -78,13 +78,13 @@ public class PanelWheels extends javax.swing.JPanel {
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         add(jSpinner1);
-        jSpinner1.setBounds(280, 330, 64, 22);
+        jSpinner1.setBounds(280, 330, 28, 18);
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
         jButton1.setText("Add");
         add(jButton1);
-        jButton1.setBounds(270, 370, 90, 25);
+        jButton1.setBounds(270, 370, 90, 29);
         add(jLabelRataCrema);
         jLabelRataCrema.setBounds(20, 130, 150, 130);
 
@@ -99,13 +99,18 @@ public class PanelWheels extends javax.swing.JPanel {
 
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         add(jSpinner2);
-        jSpinner2.setBounds(60, 330, 64, 22);
+        jSpinner2.setBounds(60, 330, 28, 18);
 
         jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
         jButton2.setText("Add");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         add(jButton2);
-        jButton2.setBounds(50, 370, 90, 25);
+        jButton2.setBounds(50, 370, 90, 29);
         add(jLabelRataVomito);
         jLabelRataVomito.setBounds(240, 130, 150, 130);
 
@@ -120,14 +125,18 @@ public class PanelWheels extends javax.swing.JPanel {
 
         jSpinner3.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         add(jSpinner3);
-        jSpinner3.setBounds(490, 330, 64, 22);
+        jSpinner3.setBounds(490, 330, 28, 18);
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
         jButton3.setText("Add");
         add(jButton3);
-        jButton3.setBounds(480, 370, 90, 25);
+        jButton3.setBounds(480, 370, 90, 29);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     public void resIMG(){
         ImageIcon logo = new ImageIcon(getClass().getResource("/img/logo.png"));

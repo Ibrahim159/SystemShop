@@ -15,7 +15,7 @@ public class ClassContador {
     }
 
     public void setCont(int cont) {
-        this.cont = cont;
+        this.cont += cont;
     }
     
     public void resetCounter(){
