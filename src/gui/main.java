@@ -1,8 +1,11 @@
 
 package gui;
 
+import clases.ClassBearings;
+import clases.ClassBoard;
 import clases.ClassContador;
 import clases.ClassProductos;
+import clases.ClassTrucks;
 import clases.ClassWheels;
 import clases.Reloj;
 import java.awt.Dimension;
@@ -92,6 +95,60 @@ public class main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        jPanelBoards = new javax.swing.JPanel();
+        Logo3 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabelReloj3 = new javax.swing.JLabel();
+        jLabelSkateDimas = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jSpinnerTablas1 = new javax.swing.JSpinner();
+        jLabelSkateSacro = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jSpinnerTablas2 = new javax.swing.JSpinner();
+        jLabelSkateUjan = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jSpinnerTablas3 = new javax.swing.JSpinner();
+        jPanel1 = new javax.swing.JPanel();
+        jButtonsTabla1 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jButtonTablas2 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jButtonTablas3 = new javax.swing.JButton();
+        jPanelTrucks = new javax.swing.JPanel();
+        Logo4 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabelReloj4 = new javax.swing.JLabel();
+        jLabelTrucksImperial = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jSpinnerTrucks1 = new javax.swing.JSpinner();
+        jButtonTrucks1 = new javax.swing.JButton();
+        jLabelTrucksColor = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jSpinnerTrucks2 = new javax.swing.JSpinner();
+        jButtonTrucks2 = new javax.swing.JButton();
+        jLabelTrucksRaw = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jSpinnerTrucks3 = new javax.swing.JSpinner();
+        jButtonTrucks3 = new javax.swing.JButton();
+        jPanelBearings = new javax.swing.JPanel();
+        Logo5 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabelReloj5 = new javax.swing.JLabel();
+        jLabelAbecAntiBlack = new javax.swing.JLabel();
+        jLabelAbecAntiGold = new javax.swing.JLabel();
+        jLabelAbecArreRed = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jSpinnerAntiAbec9 = new javax.swing.JSpinner();
+        jSpinnerBearings2 = new javax.swing.JSpinner();
+        jSpinnerBearings3 = new javax.swing.JSpinner();
+        jButtonAntiAbec9 = new javax.swing.JButton();
+        jButtonBearings2 = new javax.swing.JButton();
+        jButtonBearings3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -411,7 +468,7 @@ public class main extends javax.swing.JFrame {
         jScrollPane1.setBounds(100, 180, 450, 220);
 
         jPanel2.setBackground(new java.awt.Color(62, 63, 64));
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(242, 242, 242));
@@ -427,7 +484,7 @@ public class main extends javax.swing.JFrame {
         jPanel2.setBounds(100, 430, 100, 30);
 
         jPanel3.setBackground(new java.awt.Color(62, 63, 64));
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(242, 242, 242));
@@ -442,7 +499,7 @@ public class main extends javax.swing.JFrame {
         jPanel3.setBounds(450, 430, 100, 30);
 
         jPanel4.setBackground(new java.awt.Color(62, 63, 64));
-        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(242, 242, 242));
@@ -457,6 +514,366 @@ public class main extends javax.swing.JFrame {
         jPanel4.setBounds(440, 120, 108, 29);
 
         homeLabel.add(jPanelShoppingCart, "card4");
+
+        jPanelBoards.setBackground(new java.awt.Color(242, 242, 242));
+        jPanelBoards.setMaximumSize(new java.awt.Dimension(610, 490));
+        jPanelBoards.setMinimumSize(new java.awt.Dimension(610, 490));
+        jPanelBoards.setLayout(null);
+        jPanelBoards.add(Logo3);
+        Logo3.setBounds(6, 6, 100, 100);
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Boards");
+        jPanelBoards.add(jLabel14);
+        jLabel14.setBounds(175, 30, 260, 47);
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Date:");
+        jPanelBoards.add(jLabel15);
+        jLabel15.setBounds(530, 30, 36, 19);
+
+        jLabelReloj3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelReloj3.setForeground(new java.awt.Color(62, 63, 64));
+        jLabelReloj3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelReloj3.setText("dd/mm/yyyy");
+        jLabelReloj3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelBoards.add(jLabelReloj3);
+        jLabelReloj3.setBounds(500, 50, 100, 19);
+        jPanelBoards.add(jLabelSkateDimas);
+        jLabelSkateDimas.setBounds(230, 130, 150, 150);
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("<html><body><center>Tricolor Black Sacro<br>Vladi Rivera<br>$759.00</center></body></html>");
+        jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelBoards.add(jLabel16);
+        jLabel16.setBounds(20, 290, 150, 60);
+
+        jSpinnerTablas1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerTablas1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelBoards.add(jSpinnerTablas1);
+        jSpinnerTablas1.setBounds(70, 350, 50, 30);
+        jPanelBoards.add(jLabelSkateSacro);
+        jLabelSkateSacro.setBounds(20, 130, 150, 150);
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("<html><body><center>Tricolor Black Sacro<br>Christian Dimas<br>$759.00</center></body></html>");
+        jLabel17.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelBoards.add(jLabel17);
+        jLabel17.setBounds(230, 290, 150, 60);
+
+        jSpinnerTablas2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerTablas2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelBoards.add(jSpinnerTablas2);
+        jSpinnerTablas2.setBounds(280, 350, 50, 30);
+        jPanelBoards.add(jLabelSkateUjan);
+        jLabelSkateUjan.setBounds(440, 130, 150, 150);
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("<html><body><center>Tricolor Black Sacro<br>Genaro Lujan<br>$759.00</center></body></html>");
+        jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelBoards.add(jLabel18);
+        jLabel18.setBounds(440, 290, 150, 60);
+
+        jSpinnerTablas3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerTablas3.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelBoards.add(jSpinnerTablas3);
+        jSpinnerTablas3.setBounds(490, 350, 50, 30);
+
+        jPanel1.setBackground(new java.awt.Color(62, 63, 64));
+        jPanel1.setLayout(new java.awt.GridLayout());
+
+        jButtonsTabla1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonsTabla1.setForeground(new java.awt.Color(242, 242, 242));
+        jButtonsTabla1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonsTabla1.setText("Add");
+        jButtonsTabla1.setContentAreaFilled(false);
+        jButtonsTabla1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonsTabla1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonsTabla1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonsTabla1);
+
+        jPanelBoards.add(jPanel1);
+        jPanel1.setBounds(50, 390, 90, 28);
+
+        jPanel5.setBackground(new java.awt.Color(62, 63, 64));
+        jPanel5.setLayout(new java.awt.GridLayout());
+
+        jButtonTablas2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonTablas2.setForeground(new java.awt.Color(242, 242, 242));
+        jButtonTablas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonTablas2.setText("Add");
+        jButtonTablas2.setContentAreaFilled(false);
+        jButtonTablas2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonTablas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTablas2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButtonTablas2);
+
+        jPanelBoards.add(jPanel5);
+        jPanel5.setBounds(260, 390, 90, 28);
+
+        jPanel6.setBackground(new java.awt.Color(62, 63, 64));
+        jPanel6.setLayout(new java.awt.GridLayout());
+
+        jButtonTablas3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonTablas3.setForeground(new java.awt.Color(242, 242, 242));
+        jButtonTablas3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonTablas3.setText("Add");
+        jButtonTablas3.setContentAreaFilled(false);
+        jButtonTablas3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonTablas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTablas3ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButtonTablas3);
+
+        jPanelBoards.add(jPanel6);
+        jPanel6.setBounds(470, 390, 90, 28);
+
+        homeLabel.add(jPanelBoards, "card5");
+
+        jPanelTrucks.setBackground(new java.awt.Color(242, 242, 242));
+        jPanelTrucks.setMaximumSize(new java.awt.Dimension(610, 490));
+        jPanelTrucks.setMinimumSize(new java.awt.Dimension(610, 490));
+        jPanelTrucks.setLayout(null);
+        jPanelTrucks.add(Logo4);
+        Logo4.setBounds(6, 6, 100, 100);
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("Trucks");
+        jPanelTrucks.add(jLabel19);
+        jLabel19.setBounds(175, 30, 260, 47);
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("Date:");
+        jPanelTrucks.add(jLabel20);
+        jLabel20.setBounds(530, 30, 36, 19);
+
+        jLabelReloj4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelReloj4.setForeground(new java.awt.Color(62, 63, 64));
+        jLabelReloj4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelReloj4.setText("dd/mm/yyyy");
+        jLabelReloj4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelTrucks.add(jLabelReloj4);
+        jLabelReloj4.setBounds(500, 50, 100, 19);
+        jPanelTrucks.add(jLabelTrucksImperial);
+        jLabelTrucksImperial.setBounds(20, 130, 150, 130);
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("<html><body><center>Antifashion Trucks<br>Imperial Domination<br>$699.00</center></body></html>");
+        jLabel21.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelTrucks.add(jLabel21);
+        jLabel21.setBounds(20, 290, 150, 60);
+
+        jSpinnerTrucks1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerTrucks1.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelTrucks.add(jSpinnerTrucks1);
+        jSpinnerTrucks1.setBounds(70, 350, 50, 30);
+
+        jButtonTrucks1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonTrucks1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonTrucks1.setText("Add");
+        jButtonTrucks1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTrucks1ActionPerformed(evt);
+            }
+        });
+        jPanelTrucks.add(jButtonTrucks1);
+        jButtonTrucks1.setBounds(50, 390, 90, 29);
+        jPanelTrucks.add(jLabelTrucksColor);
+        jLabelTrucksColor.setBounds(240, 130, 150, 130);
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("<html><body><center>Antifashion Trucks<br>Imperial Colors<br>$699.00</center></body></html>");
+        jLabel22.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelTrucks.add(jLabel22);
+        jLabel22.setBounds(240, 290, 150, 60);
+
+        jSpinnerTrucks2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerTrucks2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelTrucks.add(jSpinnerTrucks2);
+        jSpinnerTrucks2.setBounds(290, 350, 50, 30);
+
+        jButtonTrucks2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonTrucks2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonTrucks2.setText("Add");
+        jButtonTrucks2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTrucks2ActionPerformed(evt);
+            }
+        });
+        jPanelTrucks.add(jButtonTrucks2);
+        jButtonTrucks2.setBounds(270, 390, 90, 29);
+        jPanelTrucks.add(jLabelTrucksRaw);
+        jLabelTrucksRaw.setBounds(450, 130, 150, 130);
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("<html><body><center>Raw Trucks<br>HUM<br>$735.00</center></body></html>");
+        jLabel23.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelTrucks.add(jLabel23);
+        jLabel23.setBounds(450, 290, 150, 60);
+
+        jSpinnerTrucks3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerTrucks3.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelTrucks.add(jSpinnerTrucks3);
+        jSpinnerTrucks3.setBounds(500, 350, 50, 30);
+
+        jButtonTrucks3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonTrucks3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonTrucks3.setText("Add");
+        jButtonTrucks3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTrucks3ActionPerformed(evt);
+            }
+        });
+        jPanelTrucks.add(jButtonTrucks3);
+        jButtonTrucks3.setBounds(480, 390, 90, 29);
+
+        homeLabel.add(jPanelTrucks, "card6");
+
+        jPanelBearings.setBackground(new java.awt.Color(242, 242, 242));
+        jPanelBearings.setMaximumSize(new java.awt.Dimension(610, 490));
+        jPanelBearings.setMinimumSize(new java.awt.Dimension(610, 490));
+        jPanelBearings.setLayout(null);
+        jPanelBearings.add(Logo5);
+        Logo5.setBounds(6, 6, 100, 100);
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Bearings");
+        jPanelBearings.add(jLabel24);
+        jLabel24.setBounds(175, 30, 260, 47);
+
+        jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Date:");
+        jPanelBearings.add(jLabel25);
+        jLabel25.setBounds(530, 30, 36, 19);
+
+        jLabelReloj5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelReloj5.setForeground(new java.awt.Color(62, 63, 64));
+        jLabelReloj5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelReloj5.setText("dd/mm/yyyy");
+        jLabelReloj5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelBearings.add(jLabelReloj5);
+        jLabelReloj5.setBounds(500, 50, 100, 19);
+        jPanelBearings.add(jLabelAbecAntiBlack);
+        jLabelAbecAntiBlack.setBounds(20, 130, 150, 130);
+        jPanelBearings.add(jLabelAbecAntiGold);
+        jLabelAbecAntiGold.setBounds(240, 130, 150, 130);
+        jPanelBearings.add(jLabelAbecArreRed);
+        jLabelAbecArreRed.setBounds(450, 130, 150, 130);
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("<html><body><center>Antifashion<br>Baleros Abec 9<br>$399.00</center></body></html>");
+        jLabel26.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelBearings.add(jLabel26);
+        jLabel26.setBounds(20, 290, 150, 60);
+
+        jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("<html><body><center>Antifashion<br>Baleros Abec 7<br>$349.00</center></body></html>");
+        jLabel27.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelBearings.add(jLabel27);
+        jLabel27.setBounds(240, 290, 150, 60);
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("<html><body><center>Arre<br>Baleros Abec 9<br>$290.00</center></body></html>");
+        jLabel28.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelBearings.add(jLabel28);
+        jLabel28.setBounds(450, 290, 150, 60);
+
+        jSpinnerAntiAbec9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerAntiAbec9.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelBearings.add(jSpinnerAntiAbec9);
+        jSpinnerAntiAbec9.setBounds(70, 350, 50, 30);
+
+        jSpinnerBearings2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerBearings2.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelBearings.add(jSpinnerBearings2);
+        jSpinnerBearings2.setBounds(290, 350, 50, 30);
+
+        jSpinnerBearings3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jSpinnerBearings3.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        jPanelBearings.add(jSpinnerBearings3);
+        jSpinnerBearings3.setBounds(500, 350, 50, 30);
+
+        jButtonAntiAbec9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonAntiAbec9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonAntiAbec9.setText("Add");
+        jButtonAntiAbec9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAntiAbec9ActionPerformed(evt);
+            }
+        });
+        jPanelBearings.add(jButtonAntiAbec9);
+        jButtonAntiAbec9.setBounds(50, 390, 90, 29);
+
+        jButtonBearings2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonBearings2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonBearings2.setText("Add");
+        jButtonBearings2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBearings2ActionPerformed(evt);
+            }
+        });
+        jPanelBearings.add(jButtonBearings2);
+        jButtonBearings2.setBounds(270, 390, 90, 29);
+
+        jButtonBearings3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonBearings3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
+        jButtonBearings3.setText("Add");
+        jButtonBearings3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBearings3ActionPerformed(evt);
+            }
+        });
+        jPanelBearings.add(jButtonBearings3);
+        jButtonBearings3.setBounds(480, 390, 90, 29);
+
+        homeLabel.add(jPanelBearings, "card7");
 
         getContentPane().add(homeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 610, 490));
 
@@ -485,33 +902,24 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonWheelActionPerformed
 
     private void jButtonBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBoardActionPerformed
-        PanelBoard pboard = new PanelBoard();
-        pboard.setSize(610,490);
-        pboard.setLocation(0, 0);
-        removeAll();
-        revalidate();
-        repaint();
-        add(pboard);
+        this.homeLabel.removeAll();
+        this.homeLabel.revalidate();
+        this.homeLabel.repaint();
+        this.homeLabel.add(this.jPanelBoards);
     }//GEN-LAST:event_jButtonBoardActionPerformed
 
     private void jButtonTrucksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrucksActionPerformed
-        PanelTrucks ptrucks = new PanelTrucks();
-        ptrucks.setSize(610,490);
-        ptrucks.setLocation(0, 0);
-        removeAll();
-        revalidate();
-        repaint();
-        add(ptrucks);
+        this.homeLabel.removeAll();
+        this.homeLabel.revalidate();
+        this.homeLabel.repaint();
+        this.homeLabel.add(this.jPanelTrucks);
     }//GEN-LAST:event_jButtonTrucksActionPerformed
 
     private void jButtonBearingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBearingsActionPerformed
-        PanelBearings pbearings = new PanelBearings();
-        pbearings.setSize(610,490);
-        pbearings.setLocation(0, 0);
-        removeAll();
-        revalidate();
-        repaint();
-        add(pbearings);
+        this.homeLabel.removeAll();
+        this.homeLabel.revalidate();
+        this.homeLabel.repaint();
+        this.homeLabel.add(this.jPanelBearings);
     }//GEN-LAST:event_jButtonBearingsActionPerformed
 
     private void jButtonRuedas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRuedas1ActionPerformed
@@ -537,6 +945,78 @@ public class main extends javax.swing.JFrame {
         modeloLista.addElement(products.get(aux).toString());
         this.aux++;
     }//GEN-LAST:event_jButtonRuedas3ActionPerformed
+
+    private void jButtonsTabla1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsTabla1ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerTablas1.getValue());
+        this.products.add(new ClassBoard("Sacro Vladi Rivera", "Tricolor", 759.00, (Integer) this.jSpinnerTablas1.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonsTabla1ActionPerformed
+
+    private void jButtonTablas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTablas2ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerTablas2.getValue());
+        this.products.add(new ClassBoard("Sacro Christian Dimas", "Tricolor", 759.00, (Integer) this.jSpinnerTablas2.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonTablas2ActionPerformed
+
+    private void jButtonTablas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTablas3ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerTablas3.getValue());
+        this.products.add(new ClassBoard("Sacro Genaro Lujan", "Tricolor", 759.00, (Integer) this.jSpinnerTablas3.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonTablas3ActionPerformed
+
+    private void jButtonTrucks3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrucks3ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerTrucks3.getValue());
+        this.products.add(new ClassTrucks("HUM", "RAW TRUCKS", 735.00,(Integer) this.jSpinnerTrucks3.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonTrucks3ActionPerformed
+
+    private void jButtonTrucks1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrucks1ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerTrucks1.getValue());
+        this.products.add(new ClassTrucks("Imperial Domination", "Antifashion", 699.00,(Integer) this.jSpinnerTrucks1.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonTrucks1ActionPerformed
+
+    private void jButtonTrucks2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrucks2ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerTrucks2.getValue());
+        this.products.add(new ClassTrucks("Imperial Colors", "Antifashion", 699.00,(Integer) this.jSpinnerTrucks2.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonTrucks2ActionPerformed
+
+    private void jButtonAntiAbec9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAntiAbec9ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerAntiAbec9.getValue());
+        this.products.add(new ClassBearings("DARK", 9, "Antifashion", 399.00, (Integer) this.jSpinnerAntiAbec9.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonAntiAbec9ActionPerformed
+
+    private void jButtonBearings2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBearings2ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerBearings2.getValue());
+        this.products.add(new ClassBearings("GOLD", 7, "Antifashion", 349.00, (Integer) this.jSpinnerBearings2.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonBearings2ActionPerformed
+
+    private void jButtonBearings3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBearings3ActionPerformed
+        this.cont.setCont((Integer) this.jSpinnerBearings3.getValue());
+        this.products.add(new ClassBearings("RED", 9, "Arre", 290.00, (Integer) this.jSpinnerBearings3.getValue()));
+        showCounter();
+        modeloLista.addElement(products.get(aux).toString());
+        this.aux++;
+    }//GEN-LAST:event_jButtonBearings3ActionPerformed
     
     private void showCounter(){
         if(this.cont.getCont() < 100){
@@ -558,6 +1038,10 @@ public class main extends javax.swing.JFrame {
         Image.SCALE_SMOOTH);
         Icon iconoLogo = new ImageIcon(logoEscalado);
         this.Logo.setIcon(iconoLogo);
+        this.Logo1.setIcon(iconoLogo);
+        this.Logo2.setIcon(iconoLogo);
+        this.Logo3.setIcon(iconoLogo);
+        this.Logo4.setIcon(iconoLogo);
     }
     
     public void imgMenu(){
@@ -602,11 +1086,69 @@ public class main extends javax.swing.JFrame {
         Image.SCALE_SMOOTH);
         Icon iconoVomito = new ImageIcon(vomitoEscalado);
         this.jLabelRataVomito.setIcon(iconoVomito);
+        
+        ImageIcon sacro = new ImageIcon(getClass().getResource("/img/skateblacksacro.jpg"));
+        Image sacroEscalado = sacro.getImage().getScaledInstance(this.jLabelSkateSacro.getWidth(), this.jLabelSkateSacro.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon iconoSacro= new ImageIcon(sacroEscalado);
+        this.jLabelSkateSacro.setIcon(iconoSacro);
+        
+        ImageIcon dimas = new ImageIcon(getClass().getResource("/img/skatedimas.jpg"));
+        Image dimasEscalado = dimas.getImage().getScaledInstance(this.jLabelSkateDimas.getWidth(), this.jLabelSkateDimas.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon dimasPelos = new ImageIcon(dimasEscalado);
+        this.jLabelSkateDimas.setIcon(dimasPelos);
+        
+        ImageIcon ujan = new ImageIcon(getClass().getResource("/img/skateujan.jpg"));
+        Image ujanEscalado = ujan.getImage().getScaledInstance(this.jLabelSkateUjan.getWidth(), this.jLabelSkateUjan.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon iconoUjan = new ImageIcon(ujanEscalado);
+        this.jLabelSkateUjan.setIcon(iconoUjan);
+        
+        ImageIcon imperial = new ImageIcon(getClass().getResource("/img/trucksimperial.jpg"));
+        Image imperialEscalado = imperial.getImage().getScaledInstance(this.jLabelTrucksImperial.getWidth(), this.jLabelTrucksImperial.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon iconoimperial = new ImageIcon(imperialEscalado);
+        this.jLabelTrucksImperial.setIcon(iconoimperial);
+        
+        ImageIcon colors = new ImageIcon(getClass().getResource("/img/trucksimperialcolor.jpg"));
+        Image colorsEscalado = colors.getImage().getScaledInstance(this.jLabelTrucksColor.getWidth(), this.jLabelTrucksColor.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon iconocolors = new ImageIcon(colorsEscalado);
+        this.jLabelTrucksColor.setIcon(iconocolors);
+        
+        ImageIcon raw = new ImageIcon(getClass().getResource("/img/trucksrawhum.jpg"));
+        Image rawEscalado = raw.getImage().getScaledInstance(this.jLabelTrucksRaw.getWidth(), this.jLabelTrucksRaw.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon iconoraw = new ImageIcon(rawEscalado);
+        this.jLabelTrucksRaw.setIcon(iconoraw);
+        
+        ImageIcon antBec9 = new ImageIcon(getClass().getResource("/img/abec7antibalck.jpg"));
+        Image antBec9Escalado = antBec9.getImage().getScaledInstance(this.jLabelAbecAntiBlack.getWidth(), this.jLabelAbecAntiBlack.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon iconoantBec9 = new ImageIcon(antBec9Escalado);
+        this.jLabelAbecAntiBlack.setIcon(iconoantBec9);
+        
+        ImageIcon antBec7 = new ImageIcon(getClass().getResource("/img/abec9antigold.jpg"));
+        Image antBec7Escalado = antBec7.getImage().getScaledInstance(this.jLabelAbecAntiGold.getWidth(), this.jLabelAbecAntiGold.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon iconoantBec7 = new ImageIcon(antBec7Escalado);
+        this.jLabelAbecAntiGold.setIcon(iconoantBec7);
+        
+        ImageIcon arrebec9 = new ImageIcon(getClass().getResource("/img/abec9arrered.jpg"));
+        Image arrebec9Escalado = arrebec9.getImage().getScaledInstance(this.jLabelAbecArreRed.getWidth(), this.jLabelAbecArreRed.getHeight(),
+        Image.SCALE_SMOOTH);
+        Icon iconoarrebec9 = new ImageIcon(arrebec9Escalado);
+        this.jLabelAbecArreRed.setIcon(iconoarrebec9);
     }
     
     public void showDate(){
         Reloj r = new Reloj();
         this.jLabelReloj.setText(r.hfActual());
+        this.jLabelReloj1.setText(r.hfActual());
+        this.jLabelReloj2.setText(r.hfActual());
+        this.jLabelReloj3.setText(r.hfActual());
+        this.jLabelReloj4.setText(r.hfActual());
     }
     
     public static void main(String args[]) {
@@ -645,6 +1187,9 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel Logo;
     private javax.swing.JLabel Logo1;
     private javax.swing.JLabel Logo2;
+    private javax.swing.JLabel Logo3;
+    private javax.swing.JLabel Logo4;
+    private javax.swing.JLabel Logo5;
     private javax.swing.JPanel asideLabel;
     private javax.swing.JPanel homeLabel;
     private javax.swing.JButton jButton1;
@@ -652,21 +1197,45 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonAntiAbec9;
     private javax.swing.JButton jButtonBearings;
+    private javax.swing.JButton jButtonBearings2;
+    private javax.swing.JButton jButtonBearings3;
     private javax.swing.JButton jButtonBoard;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonRuedas1;
     private javax.swing.JButton jButtonRuedas2;
     private javax.swing.JButton jButtonRuedas3;
     private javax.swing.JButton jButtonShoppingCart;
+    private javax.swing.JButton jButtonTablas2;
+    private javax.swing.JButton jButtonTablas3;
     private javax.swing.JButton jButtonTrucks;
+    private javax.swing.JButton jButtonTrucks1;
+    private javax.swing.JButton jButtonTrucks2;
+    private javax.swing.JButton jButtonTrucks3;
     private javax.swing.JButton jButtonWheel;
+    private javax.swing.JButton jButtonsTabla1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -674,6 +1243,9 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelAbecAntiBlack;
+    private javax.swing.JLabel jLabelAbecAntiGold;
+    private javax.swing.JLabel jLabelAbecArreRed;
     private javax.swing.JLabel jLabelContadorCart;
     private javax.swing.JLabel jLabelProfile;
     private javax.swing.JLabel jLabelRataCrema;
@@ -682,17 +1254,41 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelReloj;
     private javax.swing.JLabel jLabelReloj1;
     private javax.swing.JLabel jLabelReloj2;
+    private javax.swing.JLabel jLabelReloj3;
+    private javax.swing.JLabel jLabelReloj4;
+    private javax.swing.JLabel jLabelReloj5;
+    private javax.swing.JLabel jLabelSkateDimas;
+    private javax.swing.JLabel jLabelSkateSacro;
+    private javax.swing.JLabel jLabelSkateUjan;
+    private javax.swing.JLabel jLabelTrucksColor;
+    private javax.swing.JLabel jLabelTrucksImperial;
+    private javax.swing.JLabel jLabelTrucksRaw;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanelBearings;
+    private javax.swing.JPanel jPanelBoards;
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JPanel jPanelShoppingCart;
+    private javax.swing.JPanel jPanelTrucks;
     private javax.swing.JPanel jPanelWheels;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jSpinnerAntiAbec9;
+    private javax.swing.JSpinner jSpinnerBearings2;
+    private javax.swing.JSpinner jSpinnerBearings3;
     private javax.swing.JSpinner jSpinnerRuedas1;
     private javax.swing.JSpinner jSpinnerRuedas2;
     private javax.swing.JSpinner jSpinnerRuedas3;
+    private javax.swing.JSpinner jSpinnerTablas1;
+    private javax.swing.JSpinner jSpinnerTablas2;
+    private javax.swing.JSpinner jSpinnerTablas3;
+    private javax.swing.JSpinner jSpinnerTrucks1;
+    private javax.swing.JSpinner jSpinnerTrucks2;
+    private javax.swing.JSpinner jSpinnerTrucks3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

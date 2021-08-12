@@ -49,4 +49,10 @@ public class ClassTrucks extends ClassProductos {
     public void setCant(int cant) {
         this.cant = cant;
     }
+    
+    @Override
+    public String toString() {
+        String space = "         ";
+        return String.valueOf(super.marca) + " " + this.modelo + space + " $" + super.getPrice() + space + " x" + this.cant;
+    }
 }
