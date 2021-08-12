@@ -4,6 +4,7 @@ package gui;
 import clases.ClassBearings;
 import clases.ClassBoard;
 import clases.ClassContador;
+import clases.ClassCustumers;
 import clases.ClassProductos;
 import clases.ClassTrucks;
 import clases.ClassWheels;
@@ -19,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -26,6 +28,8 @@ public class main extends javax.swing.JFrame {
     private int aux = 0;
     private ArrayList <ClassProductos> products = new ArrayList();
     private ClassContador cont = new ClassContador();
+    private ClassCustumers custumer;
+    private double total;
     DefaultListModel modeloLista = new DefaultListModel();
     
     public main() {
@@ -86,15 +90,15 @@ public class main extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabelReloj2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        jButtonCancel = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        jButtonToPay = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        jButtonCapture = new javax.swing.JButton();
         jPanelBoards = new javax.swing.JPanel();
         Logo3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -360,7 +364,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelWheels.add(jButtonRuedas2);
-        jButtonRuedas2.setBounds(270, 370, 90, 29);
+        jButtonRuedas2.setBounds(270, 370, 90, 25);
         jPanelWheels.add(jLabelRataCrema);
         jLabelRataCrema.setBounds(20, 130, 150, 130);
 
@@ -387,7 +391,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelWheels.add(jButtonRuedas1);
-        jButtonRuedas1.setBounds(50, 370, 90, 29);
+        jButtonRuedas1.setBounds(50, 370, 90, 25);
         jPanelWheels.add(jLabelRataVomito);
         jLabelRataVomito.setBounds(240, 130, 150, 130);
 
@@ -414,7 +418,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelWheels.add(jButtonRuedas3);
-        jButtonRuedas3.setBounds(480, 370, 90, 29);
+        jButtonRuedas3.setBounds(480, 370, 90, 25);
 
         homeLabel.add(jPanelWheels, "card3");
 
@@ -453,11 +457,11 @@ public class main extends javax.swing.JFrame {
         jPanelShoppingCart.add(jLabel13);
         jLabel13.setBounds(100, 120, 70, 30);
 
-        jTextField1.setBackground(new java.awt.Color(62, 63, 64));
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(242, 242, 242));
-        jPanelShoppingCart.add(jTextField1);
-        jTextField1.setBounds(175, 120, 260, 30);
+        jTextFieldName.setBackground(new java.awt.Color(62, 63, 64));
+        jTextFieldName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextFieldName.setForeground(new java.awt.Color(242, 242, 242));
+        jPanelShoppingCart.add(jTextFieldName);
+        jTextFieldName.setBounds(175, 120, 260, 30);
 
         jList1.setBackground(new java.awt.Color(62, 63, 64));
         jList1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -470,15 +474,20 @@ public class main extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(62, 63, 64));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(242, 242, 242));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
-        jButton5.setText("Cancel");
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.setFocusPainted(false);
-        jPanel2.add(jButton5);
+        jButtonCancel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonCancel.setForeground(new java.awt.Color(242, 242, 242));
+        jButtonCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/trash.png"))); // NOI18N
+        jButtonCancel.setText("Cancel");
+        jButtonCancel.setBorderPainted(false);
+        jButtonCancel.setContentAreaFilled(false);
+        jButtonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCancel.setFocusPainted(false);
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonCancel);
 
         jPanelShoppingCart.add(jPanel2);
         jPanel2.setBounds(100, 430, 100, 30);
@@ -486,14 +495,19 @@ public class main extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(62, 63, 64));
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(242, 242, 242));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buy.png"))); // NOI18N
-        jButton2.setText("To Pay");
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setFocusPainted(false);
-        jPanel3.add(jButton2);
+        jButtonToPay.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonToPay.setForeground(new java.awt.Color(242, 242, 242));
+        jButtonToPay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buy.png"))); // NOI18N
+        jButtonToPay.setText("To Pay");
+        jButtonToPay.setContentAreaFilled(false);
+        jButtonToPay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonToPay.setFocusPainted(false);
+        jButtonToPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonToPayActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButtonToPay);
 
         jPanelShoppingCart.add(jPanel3);
         jPanel3.setBounds(450, 430, 100, 30);
@@ -501,17 +515,22 @@ public class main extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(62, 63, 64));
         jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(242, 242, 242));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/send.png"))); // NOI18N
-        jButton3.setText("Capture");
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setFocusPainted(false);
-        jPanel4.add(jButton3);
+        jButtonCapture.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jButtonCapture.setForeground(new java.awt.Color(242, 242, 242));
+        jButtonCapture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/send.png"))); // NOI18N
+        jButtonCapture.setText("Capture");
+        jButtonCapture.setContentAreaFilled(false);
+        jButtonCapture.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCapture.setFocusPainted(false);
+        jButtonCapture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCaptureActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButtonCapture);
 
         jPanelShoppingCart.add(jPanel4);
-        jPanel4.setBounds(440, 120, 108, 29);
+        jPanel4.setBounds(450, 120, 100, 30);
 
         homeLabel.add(jPanelShoppingCart, "card4");
 
@@ -593,7 +612,7 @@ public class main extends javax.swing.JFrame {
         jSpinnerTablas3.setBounds(490, 350, 50, 30);
 
         jPanel1.setBackground(new java.awt.Color(62, 63, 64));
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         jButtonsTabla1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButtonsTabla1.setForeground(new java.awt.Color(242, 242, 242));
@@ -612,7 +631,7 @@ public class main extends javax.swing.JFrame {
         jPanel1.setBounds(50, 390, 90, 28);
 
         jPanel5.setBackground(new java.awt.Color(62, 63, 64));
-        jPanel5.setLayout(new java.awt.GridLayout());
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0));
 
         jButtonTablas2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButtonTablas2.setForeground(new java.awt.Color(242, 242, 242));
@@ -631,7 +650,7 @@ public class main extends javax.swing.JFrame {
         jPanel5.setBounds(260, 390, 90, 28);
 
         jPanel6.setBackground(new java.awt.Color(62, 63, 64));
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         jButtonTablas3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButtonTablas3.setForeground(new java.awt.Color(242, 242, 242));
@@ -705,7 +724,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelTrucks.add(jButtonTrucks1);
-        jButtonTrucks1.setBounds(50, 390, 90, 29);
+        jButtonTrucks1.setBounds(50, 390, 90, 25);
         jPanelTrucks.add(jLabelTrucksColor);
         jLabelTrucksColor.setBounds(240, 130, 150, 130);
 
@@ -732,7 +751,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelTrucks.add(jButtonTrucks2);
-        jButtonTrucks2.setBounds(270, 390, 90, 29);
+        jButtonTrucks2.setBounds(270, 390, 90, 25);
         jPanelTrucks.add(jLabelTrucksRaw);
         jLabelTrucksRaw.setBounds(450, 130, 150, 130);
 
@@ -759,7 +778,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelTrucks.add(jButtonTrucks3);
-        jButtonTrucks3.setBounds(480, 390, 90, 29);
+        jButtonTrucks3.setBounds(480, 390, 90, 25);
 
         homeLabel.add(jPanelTrucks, "card6");
 
@@ -849,7 +868,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelBearings.add(jButtonAntiAbec9);
-        jButtonAntiAbec9.setBounds(50, 390, 90, 29);
+        jButtonAntiAbec9.setBounds(50, 390, 90, 25);
 
         jButtonBearings2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButtonBearings2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
@@ -860,7 +879,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelBearings.add(jButtonBearings2);
-        jButtonBearings2.setBounds(270, 390, 90, 29);
+        jButtonBearings2.setBounds(270, 390, 90, 25);
 
         jButtonBearings3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButtonBearings3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shopping-cart.png"))); // NOI18N
@@ -871,7 +890,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         jPanelBearings.add(jButtonBearings3);
-        jButtonBearings3.setBounds(480, 390, 90, 29);
+        jButtonBearings3.setBounds(480, 390, 90, 25);
 
         homeLabel.add(jPanelBearings, "card7");
 
@@ -1017,6 +1036,44 @@ public class main extends javax.swing.JFrame {
         modeloLista.addElement(products.get(aux).toString());
         this.aux++;
     }//GEN-LAST:event_jButtonBearings3ActionPerformed
+
+    private void jButtonToPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonToPayActionPerformed
+        if(this.jTextFieldName.getText() == null || "".equals(this.jTextFieldName.getText())){
+            JOptionPane.showMessageDialog(null, "Enter customer name");
+        }else{
+            JFrame ticket = new JFrame("Ticket IRS SKATE");
+            ticket.setBounds(100, 100, 200, 400);
+            for(int i = 0; i < products.size(); i++){
+                total += products.get(i).getPrice();
+            }
+        }
+        
+    }//GEN-LAST:event_jButtonToPayActionPerformed
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+        this.products.clear();
+        this.modeloLista.removeAllElements();
+        this.jSpinnerAntiAbec9.setValue(0);
+        this.jSpinnerBearings2.setValue(0);
+        this.jSpinnerBearings3.setValue(0);
+        this.jSpinnerRuedas1.setValue(0);
+        this.jSpinnerRuedas2.setValue(0);
+        this.jSpinnerRuedas3.setValue(0);
+        this.jSpinnerTablas1.setValue(0);
+        this.jSpinnerTablas2.setValue(0);
+        this.jSpinnerTablas3.setValue(0);
+        this.jSpinnerTrucks1.setValue(0);
+        this.jSpinnerTrucks2.setValue(0);
+        this.jSpinnerTrucks3.setValue(0);
+        this.jLabelContadorCart.setText(null);
+        this.aux = 0;
+        this.total = 0;
+        this.cont.resetCounter();
+    }//GEN-LAST:event_jButtonCancelActionPerformed
+
+    private void jButtonCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCaptureActionPerformed
+        new ClassCustumers(this.jTextFieldName.getText());
+    }//GEN-LAST:event_jButtonCaptureActionPerformed
     
     private void showCounter(){
         if(this.cont.getCont() < 100){
@@ -1193,15 +1250,14 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel asideLabel;
     private javax.swing.JPanel homeLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAntiAbec9;
     private javax.swing.JButton jButtonBearings;
     private javax.swing.JButton jButtonBearings2;
     private javax.swing.JButton jButtonBearings3;
     private javax.swing.JButton jButtonBoard;
+    private javax.swing.JButton jButtonCancel;
+    private javax.swing.JButton jButtonCapture;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonRuedas1;
     private javax.swing.JButton jButtonRuedas2;
@@ -1209,6 +1265,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButtonShoppingCart;
     private javax.swing.JButton jButtonTablas2;
     private javax.swing.JButton jButtonTablas3;
+    private javax.swing.JButton jButtonToPay;
     private javax.swing.JButton jButtonTrucks;
     private javax.swing.JButton jButtonTrucks1;
     private javax.swing.JButton jButtonTrucks2;
@@ -1289,6 +1346,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerTrucks1;
     private javax.swing.JSpinner jSpinnerTrucks2;
     private javax.swing.JSpinner jSpinnerTrucks3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }

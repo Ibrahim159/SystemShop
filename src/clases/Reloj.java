@@ -1,6 +1,7 @@
 package clases;
 
 import gui.main;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 
 public class Reloj {
@@ -48,5 +49,10 @@ public class Reloj {
         this.day = calendario.get(calendario.DATE);
         
         return this.day + "/" + this.month + "/" + this.year;
+    }
+    
+    public String horaActual(){
+        LocalDateTime locaDate = LocalDateTime.now();
+        return String.valueOf(locaDate.getHour() + ":" + locaDate.getMinute() + ":" + locaDate.getSecond());
     }
 }
