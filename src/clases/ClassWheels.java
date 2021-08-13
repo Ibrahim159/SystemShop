@@ -62,7 +62,7 @@ public class ClassWheels extends ClassProductos {
 
     @Override
     public String toString() {
-        String space = "         ";
+        String space = "  ";
         return String.valueOf(super.marca) + " " + this.modelo + space + " $" + super.getPrice() + space + " x" + this.cant;
     }
 }

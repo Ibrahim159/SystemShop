@@ -28,7 +28,7 @@ public class main extends javax.swing.JFrame {
     private int aux = 0;
     private ArrayList <ClassProductos> products = new ArrayList();
     private ClassContador cont = new ClassContador();
-    private ClassCustumers custumer;
+    public String texto;
     private double total;
     DefaultListModel modeloLista = new DefaultListModel();
     
@@ -917,7 +917,7 @@ public class main extends javax.swing.JFrame {
         this.homeLabel.removeAll();
         this.homeLabel.revalidate();
         this.homeLabel.repaint();
-        this.homeLabel.add(this.jPanelWheels);;
+        this.homeLabel.add(this.jPanelWheels);
     }//GEN-LAST:event_jButtonWheelActionPerformed
 
     private void jButtonBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBoardActionPerformed
@@ -1038,20 +1038,31 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBearings3ActionPerformed
 
     private void jButtonToPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonToPayActionPerformed
+        String tex = "";
         if(this.jTextFieldName.getText() == null || "".equals(this.jTextFieldName.getText())){
             JOptionPane.showMessageDialog(null, "Enter customer name");
         }else{
-            JFrame ticket = new JFrame("Ticket IRS SKATE");
-            ticket.setBounds(100, 100, 200, 400);
             for(int i = 0; i < products.size(); i++){
                 total += products.get(i).getPrice();
             }
+            for(int i = 0; i < products.size(); i++){
+                tex += products.get(i).toString() + "\n";
+            }
+            Ticket tk = new Ticket();
+            Ticket.jLabelName.setText(texto);
+            Ticket.jLabelTotal.setText(String.valueOf(total));
+            Ticket.jLabelIVA.setText(String.valueOf(total * 0.15));
+            Ticket.jLabelToPay.setText(String.valueOf(total += total * 0.15));
+            Ticket.jTextArea1.setText(tex);
+            tk.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            tk.setVisible(true);
         }
         
     }//GEN-LAST:event_jButtonToPayActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
         this.products.clear();
+        this.jTextFieldName.setText(null);
         this.modeloLista.removeAllElements();
         this.jSpinnerAntiAbec9.setValue(0);
         this.jSpinnerBearings2.setValue(0);
@@ -1072,7 +1083,8 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCaptureActionPerformed
-        new ClassCustumers(this.jTextFieldName.getText());
+        texto = this.jTextFieldName.getText();
+        JOptionPane.showMessageDialog(null, "Name Captured");
     }//GEN-LAST:event_jButtonCaptureActionPerformed
     
     private void showCounter(){

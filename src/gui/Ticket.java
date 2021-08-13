@@ -1,5 +1,7 @@
 package gui;
 
+import clases.ClassProductos;
+import clases.Reloj;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -7,21 +9,28 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class Ticket extends javax.swing.JFrame implements Printable {
-
+    String name;
+    ArrayList <ClassProductos> products = new ArrayList();
+    public static double total, IVA, ToPay;
+    
     public Ticket() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
         resIMG();
+        showData();
     }
     
-    
-    
+    public void showData(){
+        Reloj rj = new Reloj();
+        this.jLabelFecha.setText(rj.hfActual());
+        this.jLabelHora.setText(rj.horaActual());
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -30,26 +39,26 @@ public class Ticket extends javax.swing.JFrame implements Printable {
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelHora = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelFecha = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabelName = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabelToPay = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabelTotal = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLabelIVA = new javax.swing.JLabel();
         jLabelQr = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButtonPrint = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -64,20 +73,20 @@ public class Ticket extends javax.swing.JFrame implements Printable {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 10, 100, 100));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("hh:mm:ss");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
+        jLabelHora.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabelHora.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelHora.setText("hh:mm:ss");
+        jPanel1.add(jLabelHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Date:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("dd/mm/yyy");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        jLabelFecha.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabelFecha.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelFecha.setText("dd/mm/yyy");
+        jPanel1.add(jLabelFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -111,23 +120,15 @@ public class Ticket extends javax.swing.JFrame implements Printable {
         jLabel9.setText("**************************************************");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 260, -1));
 
-        jTextPane1.setEditable(false);
-        jTextPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextPane1.setFocusable(false);
-        jTextPane1.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(jTextPane1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 250, 230));
-
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Total: $");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("0.00");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
+        jLabelToPay.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelToPay.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelToPay.setText("0.00");
+        jPanel1.add(jLabelToPay, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
@@ -135,24 +136,24 @@ public class Ticket extends javax.swing.JFrame implements Printable {
         jLabel12.setText("IVA: $");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 40, -1));
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("0.00");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, -1, -1));
+        jLabelTotal.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelTotal.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelTotal.setText("0.00");
+        jPanel1.add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Total To Pay: $");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("0.00");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, -1, -1));
+        jLabelIVA.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabelIVA.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelIVA.setText("0.00");
+        jPanel1.add(jLabelIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, -1, -1));
         jPanel1.add(jLabelQr, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 510, 150, 150));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 630, 30, 30));
 
         jButtonPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/printing.png"))); // NOI18N
@@ -164,6 +165,19 @@ public class Ticket extends javax.swing.JFrame implements Printable {
             }
         });
         jPanel1.add(jButtonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 650, 30, 30));
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setAutoscrolls(false);
+        jTextArea1.setFocusable(false);
+        jTextArea1.setRequestFocusEnabled(false);
+        jTextArea1.setSelectionColor(new java.awt.Color(0, 0, 0));
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 250, 210));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 680));
 
@@ -230,28 +244,28 @@ public class Ticket extends javax.swing.JFrame implements Printable {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonPrint;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelFecha;
+    private javax.swing.JLabel jLabelHora;
+    public static javax.swing.JLabel jLabelIVA;
     private javax.swing.JLabel jLabelLogo;
-    private javax.swing.JLabel jLabelName;
+    public static javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelQr;
+    public static javax.swing.JLabel jLabelToPay;
+    public static javax.swing.JLabel jLabelTotal;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
     @Override
