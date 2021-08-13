@@ -4,24 +4,19 @@ package gui;
 import clases.ClassBearings;
 import clases.ClassBoard;
 import clases.ClassContador;
-import clases.ClassCustumers;
 import clases.ClassProductos;
 import clases.ClassTrucks;
 import clases.ClassWheels;
 import clases.Reloj;
-import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.Window;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 
 public class main extends javax.swing.JFrame {
@@ -29,8 +24,9 @@ public class main extends javax.swing.JFrame {
     private ArrayList <ClassProductos> products = new ArrayList();
     private ClassContador cont = new ClassContador();
     public String texto;
-    private double total;
+    private double total;    
     DefaultListModel modeloLista = new DefaultListModel();
+    File myObj = new File("clients.txt");
     
     public main() {
         initComponents();
@@ -40,6 +36,7 @@ public class main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         showDate();
         imgMenu();
+        bdClients();
         setResizable(false);
     }
 
@@ -84,6 +81,15 @@ public class main extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jSpinnerRuedas3 = new javax.swing.JSpinner();
         jButtonRuedas3 = new javax.swing.JButton();
+        jPanelSettings = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabelFecha = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
         jPanelShoppingCart = new javax.swing.JPanel();
         Logo2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -183,6 +189,11 @@ public class main extends javax.swing.JFrame {
         jButton1.setFocusPainted(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         asideLabel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 350, 150, -1));
 
         jButtonHome.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -229,6 +240,11 @@ public class main extends javax.swing.JFrame {
         jButton4.setFocusPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         asideLabel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 150, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -421,6 +437,67 @@ public class main extends javax.swing.JFrame {
         jButtonRuedas3.setBounds(480, 370, 90, 25);
 
         homeLabel.add(jPanelWheels, "card3");
+
+        jPanelSettings.setBackground(new java.awt.Color(242, 242, 242));
+        jPanelSettings.setLayout(null);
+
+        jLabel29.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("Tecnologico Universitario de Aguascalientes");
+        jPanelSettings.add(jLabel29);
+        jLabel29.setBounds(40, 20, 520, 70);
+
+        jLabelFecha.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelFecha.setForeground(new java.awt.Color(62, 63, 64));
+        jLabelFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFecha.setText("dd/mm/yyyy");
+        jPanelSettings.add(jLabelFecha);
+        jLabelFecha.setBounds(250, 380, 360, 24);
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("Leonardo Ibrahim Ramirez Sosa");
+        jPanelSettings.add(jLabel31);
+        jLabel31.setBounds(120, 230, 360, 24);
+
+        jLabel32.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setText("Ing. Sistemas Computacionales");
+        jPanelSettings.add(jLabel32);
+        jLabel32.setBounds(120, 120, 360, 24);
+
+        jLabel33.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setText("Programacion de Sistemas");
+        jPanelSettings.add(jLabel33);
+        jLabel33.setBounds(120, 160, 360, 24);
+
+        jLabel34.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("Mtra. Georgina Salazar Partida");
+        jPanelSettings.add(jLabel34);
+        jLabel34.setBounds(120, 270, 360, 24);
+
+        jLabel35.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel35.setText("Proyecto Final");
+        jPanelSettings.add(jLabel35);
+        jLabel35.setBounds(120, 320, 360, 24);
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(62, 63, 64));
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setText("Aguascalientes, Ags");
+        jPanelSettings.add(jLabel36);
+        jLabel36.setBounds(20, 380, 360, 24);
+
+        homeLabel.add(jPanelSettings, "card8");
 
         jPanelShoppingCart.setBackground(new java.awt.Color(242, 242, 242));
         jPanelShoppingCart.setMaximumSize(new java.awt.Dimension(610, 490));
@@ -905,7 +982,20 @@ public class main extends javax.swing.JFrame {
         this.homeLabel.repaint();
         this.homeLabel.add(this.jPanelShoppingCart);
     }//GEN-LAST:event_jButtonShoppingCartActionPerformed
-
+    
+    public void bdClients(){
+        try{
+            if(myObj.createNewFile()){
+                System.out.println("File created: " + myObj.getName());
+            }else{
+                System.out.println("File already exists.");
+            }
+        }catch(IOException e){
+            System.err.println("An error ocurred");
+            e.printStackTrace();
+        }
+    }
+    
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         this.homeLabel.removeAll();
         this.homeLabel.revalidate();
@@ -942,103 +1032,143 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBearingsActionPerformed
 
     private void jButtonRuedas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRuedas1ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerRuedas1.getValue());
-        this.products.add(new ClassWheels("Purple Head","55mm","Rata Wheels",599.00,(Integer) this.jSpinnerRuedas1.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerRuedas1.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerRuedas1.getValue());
+            this.products.add(new ClassWheels("Purple Head","55mm","Rata Wheels",599.00,(Integer) this.jSpinnerRuedas1.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerRuedas1.setValue(0);
+        }
     }//GEN-LAST:event_jButtonRuedas1ActionPerformed
 
     private void jButtonRuedas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRuedas2ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerRuedas2.getValue());
-        this.products.add(new ClassWheels("Vomito Verde","55mm","Rata Wheels",599.00,(Integer) this.jSpinnerRuedas2.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerRuedas2.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerRuedas2.getValue());
+            this.products.add(new ClassWheels("Vomito Verde","55mm","Rata Wheels",599.00,(Integer) this.jSpinnerRuedas2.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerRuedas2.setValue(0);
+        }
     }//GEN-LAST:event_jButtonRuedas2ActionPerformed
 
     private void jButtonRuedas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRuedas3ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerRuedas3.getValue());
-        this.products.add(new ClassWheels("Pelos Morado","55mm","Rata Wheels",599.00,(Integer) this.jSpinnerRuedas3.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerRuedas3.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerRuedas3.getValue());
+            this.products.add(new ClassWheels("Pelos Morado","55mm","Rata Wheels",599.00,(Integer) this.jSpinnerRuedas3.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerRuedas3.setValue(0);
+        } 
     }//GEN-LAST:event_jButtonRuedas3ActionPerformed
 
     private void jButtonsTabla1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsTabla1ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerTablas1.getValue());
-        this.products.add(new ClassBoard("Sacro Vladi Rivera", "Tricolor", 759.00, (Integer) this.jSpinnerTablas1.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerTablas1.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerTablas1.getValue());
+            this.products.add(new ClassBoard("Sacro Vladi Rivera", "Tricolor", 759.00, (Integer) this.jSpinnerTablas1.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++; 
+            this.jSpinnerTablas1.setValue(0);
+        }
     }//GEN-LAST:event_jButtonsTabla1ActionPerformed
 
     private void jButtonTablas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTablas2ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerTablas2.getValue());
-        this.products.add(new ClassBoard("Sacro Christian Dimas", "Tricolor", 759.00, (Integer) this.jSpinnerTablas2.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerTablas2.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerTablas2.getValue());
+            this.products.add(new ClassBoard("Sacro Christian Dimas", "Tricolor", 759.00, (Integer) this.jSpinnerTablas2.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++; 
+            this.jSpinnerTablas2.setValue(0);
+        }
+        
     }//GEN-LAST:event_jButtonTablas2ActionPerformed
 
     private void jButtonTablas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTablas3ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerTablas3.getValue());
-        this.products.add(new ClassBoard("Sacro Genaro Lujan", "Tricolor", 759.00, (Integer) this.jSpinnerTablas3.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerTablas3.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerTablas3.getValue());
+            this.products.add(new ClassBoard("Sacro Genaro Lujan", "Tricolor", 759.00, (Integer) this.jSpinnerTablas3.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerTablas3.setValue(0);
+        }
+        
     }//GEN-LAST:event_jButtonTablas3ActionPerformed
 
     private void jButtonTrucks3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrucks3ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerTrucks3.getValue());
-        this.products.add(new ClassTrucks("HUM", "RAW TRUCKS", 735.00,(Integer) this.jSpinnerTrucks3.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerTrucks3.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerTrucks3.getValue());
+            this.products.add(new ClassTrucks("HUM", "RAW TRUCKS", 735.00,(Integer) this.jSpinnerTrucks3.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerTrucks3.setValue(0);
+        }
     }//GEN-LAST:event_jButtonTrucks3ActionPerformed
 
     private void jButtonTrucks1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrucks1ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerTrucks1.getValue());
-        this.products.add(new ClassTrucks("Imperial Domination", "Antifashion", 699.00,(Integer) this.jSpinnerTrucks1.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerTrucks1.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerTrucks1.getValue());
+            this.products.add(new ClassTrucks("Imperial Domination", "Antifashion", 699.00,(Integer) this.jSpinnerTrucks1.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerTrucks1.setValue(0);
+        }
     }//GEN-LAST:event_jButtonTrucks1ActionPerformed
 
     private void jButtonTrucks2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrucks2ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerTrucks2.getValue());
-        this.products.add(new ClassTrucks("Imperial Colors", "Antifashion", 699.00,(Integer) this.jSpinnerTrucks2.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerTrucks2.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerTrucks2.getValue());
+            this.products.add(new ClassTrucks("Imperial Colors", "Antifashion", 699.00,(Integer) this.jSpinnerTrucks2.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerTrucks2.setValue(0);
+        }
     }//GEN-LAST:event_jButtonTrucks2ActionPerformed
 
     private void jButtonAntiAbec9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAntiAbec9ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerAntiAbec9.getValue());
-        this.products.add(new ClassBearings("DARK", 9, "Antifashion", 399.00, (Integer) this.jSpinnerAntiAbec9.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerAntiAbec9.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerAntiAbec9.getValue());
+            this.products.add(new ClassBearings("DARK", 9, "Antifashion", 399.00, (Integer) this.jSpinnerAntiAbec9.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerAntiAbec9.setValue(0);
+        }
+        
     }//GEN-LAST:event_jButtonAntiAbec9ActionPerformed
 
     private void jButtonBearings2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBearings2ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerBearings2.getValue());
-        this.products.add(new ClassBearings("GOLD", 7, "Antifashion", 349.00, (Integer) this.jSpinnerBearings2.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerBearings2.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerBearings2.getValue());
+            this.products.add(new ClassBearings("GOLD", 7, "Antifashion", 349.00, (Integer) this.jSpinnerBearings2.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++;
+            this.jSpinnerBearings2.setValue(0);
+        }
     }//GEN-LAST:event_jButtonBearings2ActionPerformed
 
     private void jButtonBearings3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBearings3ActionPerformed
-        this.cont.setCont((Integer) this.jSpinnerBearings3.getValue());
-        this.products.add(new ClassBearings("RED", 9, "Arre", 290.00, (Integer) this.jSpinnerBearings3.getValue()));
-        showCounter();
-        modeloLista.addElement(products.get(aux).toString());
-        this.aux++;
+        if((Integer) this.jSpinnerBearings3.getValue() > 0){
+            this.cont.setCont((Integer) this.jSpinnerBearings3.getValue());
+            this.products.add(new ClassBearings("RED", 9, "Arre", 290.00, (Integer) this.jSpinnerBearings3.getValue()));
+            showCounter();
+            modeloLista.addElement(products.get(aux).toString());
+            this.aux++; 
+            this.jSpinnerBearings3.setValue(0);
+        }
     }//GEN-LAST:event_jButtonBearings3ActionPerformed
 
     private void jButtonToPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonToPayActionPerformed
         String tex = "";
+        Reloj rj = new Reloj();
         if(this.jTextFieldName.getText() == null || "".equals(this.jTextFieldName.getText())){
             JOptionPane.showMessageDialog(null, "Enter customer name");
         }else{
@@ -1055,9 +1185,17 @@ public class main extends javax.swing.JFrame {
             Ticket.jLabelToPay.setText(String.valueOf(total += total * 0.15));
             Ticket.jTextArea1.setText(tex);
             tk.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            tk.setVisible(true);
+            tk.setVisible(true); 
+            try{
+                FileWriter myWriter = new FileWriter("clients.txt", true);
+                myWriter.write("Name: " + this.texto + " Total: " + this.total + " Date: " + rj.hfActual() + " Hour: " + rj.horaActual() + "\n");
+                myWriter.close();
+                System.out.println("Successfully wrote to the file");
+            }catch(IOException e){
+                System.err.println("An error ocurred");
+                e.printStackTrace();
+            }
         }
-        
     }//GEN-LAST:event_jButtonToPayActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
@@ -1086,6 +1224,17 @@ public class main extends javax.swing.JFrame {
         texto = this.jTextFieldName.getText();
         JOptionPane.showMessageDialog(null, "Name Captured");
     }//GEN-LAST:event_jButtonCaptureActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.homeLabel.removeAll();
+        this.homeLabel.revalidate();
+        this.homeLabel.repaint();
+        this.homeLabel.add(this.jPanelSettings);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void showCounter(){
         if(this.cont.getCont() < 100){
@@ -1218,6 +1367,7 @@ public class main extends javax.swing.JFrame {
         this.jLabelReloj2.setText(r.hfActual());
         this.jLabelReloj3.setText(r.hfActual());
         this.jLabelReloj4.setText(r.hfActual());
+        this.jLabelFecha.setText(r.hfActual());
     }
     
     public static void main(String args[]) {
@@ -1305,7 +1455,14 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1316,6 +1473,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAbecAntiGold;
     private javax.swing.JLabel jLabelAbecArreRed;
     private javax.swing.JLabel jLabelContadorCart;
+    private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelProfile;
     private javax.swing.JLabel jLabelRataCrema;
     private javax.swing.JLabel jLabelRataPelos;
@@ -1342,6 +1500,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelBearings;
     private javax.swing.JPanel jPanelBoards;
     private javax.swing.JPanel jPanelMenu;
+    private javax.swing.JPanel jPanelSettings;
     private javax.swing.JPanel jPanelShoppingCart;
     private javax.swing.JPanel jPanelTrucks;
     private javax.swing.JPanel jPanelWheels;
